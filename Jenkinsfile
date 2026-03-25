@@ -18,7 +18,7 @@ def cloneJsApiFramework() {
 
 def installPythonDeps() {
     dir('python-greetings') {
-        bat 'python -m venv venv'
+        bat 'py -3 venv venv'
         bat 'venv\\Scripts\\python.exe -m pip install --upgrade pip'
         bat 'venv\\Scripts\\python.exe -m pip install -r requirements.txt'
     }
@@ -41,7 +41,7 @@ xcopy /E /I /Y python-greetings C:\\greetings-deploy\\${envName}
 """
 
     dir("C:/greetings-deploy/${envName}") {
-        bat 'python -m venv venv'
+        bat 'py -3 venv venv'
         bat 'venv\\Scripts\\python.exe -m pip install --upgrade pip'
         bat 'venv\\Scripts\\python.exe -m pip install -r requirements.txt'
     }
