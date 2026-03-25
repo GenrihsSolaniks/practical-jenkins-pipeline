@@ -30,7 +30,7 @@ def deployStage(envName, port) {
     clonePythonGreetings()
 
     bat """
-pm2 delete greetings-app-${envName}
+"C:\\Users\\lastl\\AppData\\Roaming\\npm\\pm2.cmd" delete greetings-app-${envName}
 EXIT /B 0
 """
 
@@ -48,10 +48,10 @@ xcopy /E /I /Y python-greetings C:\\greetings-deploy\\${envName}
 
     bat """
 set PORT=${port}
-pm2 start C:\\greetings-deploy\\${envName}\\app.py --name greetings-app-${envName} --interpreter C:\\greetings-deploy\\${envName}\\venv\\Scripts\\python.exe
+"C:\\Users\\lastl\\AppData\\Roaming\\npm\\pm2.cmd" start C:\\greetings-deploy\\${envName}\\app.py --name greetings-app-${envName} --interpreter C:\\greetings-deploy\\${envName}\\venv\\Scripts\\python.exe
 """
 
-    bat 'pm2 list'
+    bat '"C:\\Users\\lastl\\AppData\\Roaming\\npm\\pm2.cmd" list'
 }
 
 def testStage(envName) {
